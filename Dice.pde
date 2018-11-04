@@ -1,4 +1,9 @@
-
+/** Dice Project
+  * Self-rolling dice(25) 
+  * Displays sum of the roll
+  * @author Andrea Zhu
+  * @date   2018-11-05
+  */
 
 Die d;
 int p;
