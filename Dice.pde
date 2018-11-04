@@ -1,59 +1,79 @@
-Die d1;
+
+
+Die d;
 int p;
+int sum;
 
 void setup()
 {
-  noLoop();
-  size(300,300);
+  size(420,400);
+  frameRate(1);
 }
+
 void draw()
 {
-  d1 = new Die(150,150);
+  sum = 0;
   background(255,255,255);
-  d1.show();
+  for (int y = 30; y <= 300; y += 60)
+  {
+    for (int x = 60; x <= 300; x += 60)
+    {
+      d = new Die(x,y);
+      d.roll();
+    }
+  }
+  text("Sum of Roll:" + sum, 300,360);
+  
 }
+
 void mousePressed()
 {
+  sum = 0;
   redraw();
 }
-class Die //models one single dice cube
+
+class Die 
 {
-  //variable declarations here
-  
-  Die(int x, int y) //constructor
+  int myX, myY;
+  Die(int x, int y) 
   {
-    //variable initializations here
+    myX = x;
+    myY = y;
   }
+  
   void roll()
   {
     p  = (int)(Math.random()*6 + 1);
+    d.show();
+    sum = sum + p;
   }
 
   void show()
   {
-    //p  = (int)(Math.random()*6 + 1);
-    p = 5;
     fill(255);
-    rect(125, 125, 50, 50, 7);
+    rect(myX, myY, 50, 50, 7);
     fill(0);
+    
     if (p == 1){
-    ellipse(150, 150, 10, 10);
+      ellipse(myX + 25, myY + 25, 10, 10);
     } 
     if (p >= 2){
-    ellipse(135, 135, 10, 10);
-    ellipse(165, 165, 10, 10);
-    if (p == 3){
-    ellipse(150, 150, 10, 10);
-    }
-    if (p >= 4){
-    ellipse(165, 135, 10, 10);
-    ellipse(135, 165, 10, 10);
-    if (p == 5){
-    ellipse(150, 150, 10, 10);
-    }
-    }
-    }  else if (p == 6){
-    ellipse(150, 150, 10, 10);
+      ellipse(myX + 10, myY + 10, 10, 10);
+      ellipse(myX + 40, myY + 40, 10, 10);
+      if (p == 3){
+        ellipse(myX + 25, myY + 25, 10, 10);
+      }
+      if (p >= 4){
+        ellipse(myX + 40, myY + 10, 10, 10);
+        ellipse(myX + 10, myY + 40, 10, 10);
+        if (p == 5){
+          ellipse(myX + 25, myY + 25, 10, 10);
+        }
+        if (p == 6){
+          ellipse(myX + 10, myY + 25, 10, 10);
+          ellipse(myX + 40, myY + 25, 10, 10);
+        }
+      }
     }
   }
 }
