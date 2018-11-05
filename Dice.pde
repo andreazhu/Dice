@@ -48,7 +48,7 @@ class Die
   
   void roll()
   {
-    p  = (int)(Math.random()*6 + 1);
+    p  = (int)(Math.random()*6 + 1); //[1,7)
     d.show();
     sum = sum + p;
   }
