@@ -19,7 +19,7 @@ void draw()
 {
   sum = 0;
   background(255,255,255);
-  for (int y = 30; y <= 300; y += 60)
+  for (int y = 40; y <= 300; y += 60)
   {
     for (int x = 60; x <= 300; x += 60)
     {
@@ -27,7 +27,7 @@ void draw()
       d.roll();
     }
   }
-  text("Sum of Roll:" + sum, 300,360);
+  text("Sum of Roll:" + sum, 160,370);
   
 }
 
